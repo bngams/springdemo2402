@@ -126,3 +126,11 @@ CREATE TABLE CONTACTS(
     LASTNAME VARCHAR(255),
     EMAIL VARCHAR(255)
 ) [42001-224]
+2024-02-14 13:13:14.886839Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2024-02-14 13:25:56.815379Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2024-02-14 13:28:03.494625Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2024-02-14 13:40:08.059350Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]

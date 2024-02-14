@@ -1,9 +1,7 @@
 package fr.cesi.toulouse.cda23.demospring0224.controllers;
 
-import fr.cesi.toulouse.cda23.demospring0224.models.User;
-import org.apache.catalina.connector.Response;
+import fr.cesi.toulouse.cda23.demospring0224.models.UserPOJO;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +22,7 @@ public class DemoBisController {
     }
 
     @PostMapping("/hello/json")
-    public ResponseEntity<String> helloJson(@RequestBody User u) {
+    public ResponseEntity<String> helloJson(@RequestBody UserPOJO u) {
         return new ResponseEntity<>("Hello " + u.getName(), HttpStatus.OK);
     }
 }

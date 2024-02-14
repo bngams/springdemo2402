@@ -8,6 +8,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -26,7 +27,7 @@ public class SpringSecurityConfig {
                     HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
                     String authorizationHeader = httpRequest.getHeader("Authorization");
                     // is HTTP has header Authorization (with TOKEN)
-                    if(!authorizationHeader.isEmpty()) {
+                    if(authorizationHeader != null && !authorizationHeader.isEmpty()) {
                         // remove prefix "BEARER" from TOKEN
                         authorizationHeader.replace("Bearer ", "");
                         // TODO: is token valid
@@ -42,6 +43,8 @@ public class SpringSecurityConfig {
                     }
                     filterChain.doFilter(servletRequest, servletResponse);
                 }, UsernamePasswordAuthenticationFilter.class)
+                // disable CSRF (form submit token)
+                .csrf(AbstractHttpConfigurer::disable)
                 // manage routing access
                 .authorizeHttpRequests(authrequestManager ->
                         authrequestManager
