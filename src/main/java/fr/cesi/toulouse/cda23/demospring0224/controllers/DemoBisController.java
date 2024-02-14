@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 // Controller HTTP REST only
 // @Controller + @ResponseBody
 @RestController
-@RequestMapping("/bis")
+@RequestMapping("/public/bis")
 public class DemoBisController {
 
     @GetMapping("/hello")
